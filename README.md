@@ -3,7 +3,7 @@
 Vous avez appris FLASK et javascript vous donne envie de voumir alors <a href="https://htmx.org/">HTMX</a> est fait pour vous.
 > Je veux être clair: on ne peut pas faire du web sans javascript. HTMX c'est faire du javascript (AJAX) sans écrire une seule ligne de javascript.
 
-Le HTML devient magique, un simple attribut ajouté à tag html, une requête est lancée. 
+Le HTML devient magique, un simple attribut HTMX ajouté à un tag html, une requête ajax est lancée. 
 
 ~~~html
 <form 
