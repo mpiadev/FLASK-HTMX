@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {{ bootstrap.load_css() }}
+</head>
+<body>
+    {% block main %}
+    {% endblock main %}
+
+    {{ bootstrap.load_js() }}
+    <script src="{{ url_for('static', filename='js/htmx.js') }}"></script>
+</body>
+</html>

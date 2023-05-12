@@ -1,0 +1,32 @@
+<form 
+    hx-post="{{ url_for('add_person') }}" 
+    hx-target="#persons-list" 
+    hx-swap="beforeend"
+    hx-on="htmx:afterRequest: this.remove()"
+    hx-trigger="click from:#submit-all"
+    class="my-3"
+>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="mb-3">
+                <label for="fist_name">{{ form.first_name.label(class_="form-label") }}:</label>
+                {{ form.first_name(class_="form-control") }}
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="mb-3">
+                <label for="last_name">{{ form.last_name.label(class_="form-label") }}:</label>
+                {{ form.last_name(class_="form-control") }}
+            </div>
+        </div>
+        <div class="col-md-2 align-self-end mb-3">
+            <button 
+                type="button" 
+                class="btn btn-danger"
+                hx-on="click: this.closest('form').remove()"
+            >
+                Annuler
+            </button>
+        </div>
+    </div>
+</form>

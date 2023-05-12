@@ -1,0 +1,41 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% from "bootstrap5/form.html" import render_form_row %}
+
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="text-primary my-3">Ajout de personnes</h1>
+
+        <div id="contact-forms">
+            {% include "partials/form.html" %}
+        </div>
+
+        <div class="my-2">
+            <button 
+                class="btn btn-success btn-sm" type="button"
+                hx-get="{{ url_for('add_person') }}"
+                hx-target="#contact-forms"
+                hx-swap="beforeend"
+            >
+                + Ajouter personne
+            </button>
+            <button class="btn btn-primary btn-sm" type="button" id="submit-all">Ajouter tout</button>
+        </div>
+
+        <table class="table my-3">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+              </tr>
+            </thead>
+            <tbody id="persons-list">
+                {% for personne in personnes %}
+                    {% include "partials/persons.html" %}
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock main %}
