@@ -32,7 +32,7 @@ class Person(db.Model):
         return f"{self.first_name} {self.last_name}"
 
 
-class ContactForm(FlaskForm):
+class PersonForm(FlaskForm):
     first_name = StringField(
         label="Prénom",
         validators=[DataRequired()]
@@ -47,13 +47,13 @@ class ContactForm(FlaskForm):
 @app.route("/")
 def index():
     personnes = Person.query.order_by(Person.id.asc())
-    form = ContactForm()
+    form = PersonForm()
     return render_template("index.html", form=form, personnes=personnes)
 
 
 @app.route("/add_person/", methods=["GET", "POST"])
 def add_person():
-    form = ContactForm()
+    form = PersonForm()
 
     if request.method == "POST":
         first_name = form.first_name.data
