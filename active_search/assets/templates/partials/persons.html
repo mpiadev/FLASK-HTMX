@@ -1,0 +1,7 @@
+{% for person in persons %}
+    <tr>
+        <th scope="row">{{ person.id }}</th>
+        <td>{{ person.first_name }}</td>
+        <td>{{ person.last_name }}</td>
+    </tr>
+{% endfor %}

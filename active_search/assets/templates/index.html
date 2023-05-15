@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="text-primary">Liste de personnes</h1>
+
+        <form class="my-3">
+            <input 
+                type="text" 
+                name="q" 
+                id="q"
+                placeholder="votre recherche..."
+                class="form-control"
+                hx-get="{{ url_for('search') }}"
+                hx-trigger="keyup changed delay:500ms"
+                hx-target="#persons"
+            >
+        </form>
+
+        <table class="table  table-bordered table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+              </tr>
+            </thead>
+            <tbody id="persons">
+                {% include 'partials/persons.html' %}
+            </tbody>
+        </table>
+    </div>
+{% endblock main %}
